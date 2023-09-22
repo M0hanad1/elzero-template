@@ -258,7 +258,7 @@ header .mega-menu i {
 }
 
 .landing .container {
-    min-height: calc(100vh - 72px);
+    min-height: calc(100svh - 72px);
     padding-bottom: 120px;
     display: flex;
     align-items: center;
@@ -286,7 +286,7 @@ header .mega-menu i {
 
 @media (max-width: 991px) {
     .landing .container {
-        min-height: calc(100vh - 100px);
+        min-height: calc(100svh - 100px);
     }
     .landing .text {
         text-align: center;
