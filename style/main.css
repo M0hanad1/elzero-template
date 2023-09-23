@@ -6,6 +6,7 @@
     --main-transition: 0.3s;
     --white-hover: #fafafa;
     --section-padding: 100px;
+    --section-background: #ececec;
 }
 
 *,
@@ -42,11 +43,13 @@ a {
     position: relative;
     transition: var(--main-transition);
     cursor: default;
+    z-index: 1;
 }
 
 .main-title:hover {
     color: white;
     border-color: var(--main-color);
+    background-color: var(--main-color);
     transition-delay: 0.5s;
 }
 
@@ -448,6 +451,57 @@ header .mega-menu i {
 }
 /* Articles End */
 
+/* Gallery Start */
+.gallery {
+    padding-block: var(--section-padding);
+    background-color: var(--section-background);
+}
+
+.gallery .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.gallery .box {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery .image {
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery img {
+    max-width: 100%;
+    transition: var(--main-transition);
+}
+
+.gallery .image:hover img {
+    transform: scale(1.1) rotate(3deg);
+}
+
+.gallery .image::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    transition: var(--main-transition);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.gallery .image:hover::before {
+    animation: flashing 0.7s;
+}
+/* Gallery End */
+
 /* Animation Start */
 @keyframes bounce {
     0% {
@@ -466,7 +520,7 @@ header .mega-menu i {
     }
     100% {
         left: 0;
-        width: 50%;
+        width: 100%;
         height: 100%;
         border-radius: 0%;
     }
@@ -480,7 +534,7 @@ header .mega-menu i {
     }
     100% {
         right: 0;
-        width: 50%;
+        width: 100%;
         height: 100%;
         border-radius: 0%;
     }
@@ -489,6 +543,18 @@ header .mega-menu i {
 @keyframes move-left {
     100% {
         transform: translateX(5px);
+    }
+}
+
+@keyframes flashing {
+    0%,
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 200%;
+        height: 200%;
     }
 }
 /* Animation End */
