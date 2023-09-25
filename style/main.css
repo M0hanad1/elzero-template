@@ -889,6 +889,57 @@ header .mega-menu i {
 }
 /* Services End */
 
+/* Skills Start */
+.skills {
+    padding-block: var(--section-padding);
+}
+
+.skills .container {
+    display: flex;
+}
+
+.skills .content {
+    flex: 1;
+}
+
+@media (max-width: 991px) {
+    .skills img {
+        display: none;
+    }
+}
+
+.skills h3 {
+    margin-block: 20px;
+}
+
+.skills .progress-holder {
+    background-color: #dedede;
+    height: 30px;
+    position: relative;
+}
+
+.skills .progress-holder::before {
+    content: attr(width);
+    color: var(--main-color);
+    right: 0;
+    top: calc(-100% - 12px);
+    font-size: 12px;
+    padding: 3px 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    position: absolute;
+}
+
+.skills .progress {
+    display: block;
+    height: 100%;
+    width: 0%;
+    transition: 0.6s;
+    background-color: var(--main-color);
+}
+/* Skills End */
+
 /* Animation Start */
 @keyframes bounce {
     0% {
