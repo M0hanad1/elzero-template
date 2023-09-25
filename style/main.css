@@ -663,12 +663,12 @@ header .mega-menu i {
     gap: 10px;
     border-radius: 8px;
     transition: var(--main-transition);
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
 }
 
 .test .box:hover {
     transform: translateY(-8px);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
 .test img {
