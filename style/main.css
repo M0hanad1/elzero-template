@@ -664,10 +664,11 @@ header .mega-menu i {
 
 .test img {
     position: absolute;
-    right: -15px;
-    top: -50px;
+    right: -10px;
+    top: -20px;
     background-color: var(--section-background);
     padding: 10px;
+    height: 100px;
     width: 100px;
     border-radius: 50%;
 }
@@ -687,6 +688,109 @@ header .mega-menu i {
     color: #ffc107;
 }
 /* Testimonials End */
+
+/* Team Start */
+.team {
+    padding-block: var(--section-padding);
+    position: relative;
+}
+
+.team .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.team .box {
+    position: relative;
+    transition: var(--main-transition);
+}
+
+.team .box::before,
+.team .box::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0;
+    right: 0;
+    top: 0;
+    border-radius: 8px;
+    z-index: -1;
+    transition: var(--main-transition);
+}
+
+.team .box::before {
+    width: calc(100% - 60px);
+    background-color: var(--section-background);
+}
+
+.team .box::after {
+    background-color: #e4e4e4;
+}
+
+.team .box:hover::after {
+    width: calc(100% - 60px);
+}
+
+.team .top {
+    display: flex;
+    padding-top: 40px;
+    align-items: center;
+}
+
+.team img {
+    max-width: calc(100% - 60px);
+    border-radius: 8px;
+    transition: var(--main-transition);
+}
+
+.team .box:hover img {
+    filter: grayscale(1);
+}
+
+.team .social {
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.team a {
+    display: flex;
+    width: 60px;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    color: #777;
+    transition: var(--main-transition);
+}
+
+.team a:hover {
+    filter: grayscale(0);
+    color: var(--main-color);
+}
+
+.team .info {
+    padding-left: 80px;
+    transition: var(--main-transition);
+}
+
+.team .box:hover .info {
+    filter: grayscale(1);
+}
+.team h3 {
+    margin-block: 20px 15px;
+    font-size: 24px;
+    color: var(--main-color);
+}
+
+.team p {
+    margin-block: 0 20px;
+    font-size: 16px;
+}
+/* Team End */
 
 /* Animation Start */
 @keyframes bounce {
