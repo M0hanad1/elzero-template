@@ -1119,7 +1119,7 @@ header .mega-menu i {
     margin: 0 auto;
     background-color: var(--section-background);
     padding: 30px 40px;
-    gap: 30px;
+    gap: 20px;
     border-radius: 50px;
 }
 
@@ -1163,7 +1163,6 @@ header .mega-menu i {
         flex-direction: column;
         border-radius: 6px;
         padding: 20px;
-        gap: 20px;
         width: 100%;
     }
 
