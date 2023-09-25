@@ -662,7 +662,13 @@ header .mega-menu i {
     flex-direction: column;
     gap: 10px;
     border-radius: 8px;
+    transition: var(--main-transition);
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.test .box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
 }
 
 .test img {
@@ -821,6 +827,8 @@ header .mega-menu i {
 
 .services .box:hover {
     transform: translateY(-8px);
+    box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.2),
+        0 2px 4px 0 rgba(0, 0, 0, 0.19);
 }
 
 .services .box::before {
@@ -896,6 +904,57 @@ header .mega-menu i {
     color: var(--main-color-alt);
 }
 /* Services End */
+
+/* Skills Start */
+.skills {
+    padding-block: var(--section-padding);
+}
+
+.skills .container {
+    display: flex;
+}
+
+.skills .content {
+    flex: 1;
+}
+
+@media (max-width: 991px) {
+    .skills img {
+        display: none;
+    }
+}
+
+.skills h3 {
+    margin-block: 20px;
+}
+
+.skills .progress-holder {
+    background-color: #dedede;
+    height: 30px;
+    position: relative;
+}
+
+.skills .progress-holder::before {
+    content: attr(width);
+    color: var(--main-color);
+    right: 0;
+    top: calc(-100% - 12px);
+    font-size: 12px;
+    padding: 3px 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    position: absolute;
+}
+
+.skills .progress {
+    display: block;
+    height: 100%;
+    width: 0%;
+    transition: 0.6s;
+    background-color: var(--main-color);
+}
+/* Skills End */
 
 /* Work Start */
 .work {
@@ -974,57 +1033,6 @@ header .mega-menu i {
     color: #777;
 }
 /* Work End */
-
-/* Skills Start */
-.skills {
-    padding-block: var(--section-padding);
-}
-
-.skills .container {
-    display: flex;
-}
-
-.skills .content {
-    flex: 1;
-}
-
-@media (max-width: 991px) {
-    .skills img {
-        display: none;
-    }
-}
-
-.skills h3 {
-    margin-block: 20px;
-}
-
-.skills .progress-holder {
-    background-color: #dedede;
-    height: 30px;
-    position: relative;
-}
-
-.skills .progress-holder::before {
-    content: attr(width);
-    color: var(--main-color);
-    right: 0;
-    top: calc(-100% - 12px);
-    font-size: 12px;
-    padding: 3px 5px;
-    border-radius: 4px;
-    font-weight: bold;
-    border: 1px solid #ccc;
-    position: absolute;
-}
-
-.skills .progress {
-    display: block;
-    height: 100%;
-    width: 0%;
-    transition: 0.6s;
-    background-color: var(--main-color);
-}
-/* Skills End */
 
 /* Animation Start */
 @keyframes bounce {
