@@ -1034,6 +1034,145 @@ header .mega-menu i {
 }
 /* Work End */
 
+/* Events Start */
+.events {
+    padding-block: var(--section-padding);
+}
+
+.events .container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.events img {
+    max-width: 450px;
+}
+
+@media (max-width: 991px) {
+    .events img {
+        display: none;
+    }
+}
+
+.events .info {
+    flex: 1;
+}
+
+.events .time {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.events .unit {
+    border: 1px solid var(--section-background);
+    width: 75px;
+    border-radius: 6px;
+    transition: var(--main-transition);
+}
+
+.events .unit:hover {
+    border-color: var(--main-color);
+}
+
+.events .unit div:first-child {
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 35px;
+    padding: 15px;
+    border-bottom: 1px solid var(--section-background);
+    transition: var(--main-transition);
+}
+
+.events .unit:hover div:first-child {
+    border-bottom-color: var(--main-color);
+}
+
+.events .unit div:last-child {
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+.events h3 {
+    margin-block: 30px;
+    font-size: 28px;
+}
+
+.events p {
+    text-align: center;
+    line-height: 1.7;
+    font-size: 19px;
+    color: #777;
+}
+
+.events .subscribe {
+    width: 100%;
+    margin-top: 80px;
+}
+
+.events form {
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-color: var(--section-background);
+    padding: 30px 40px;
+    gap: 30px;
+    border-radius: 50px;
+}
+
+.events input:focus {
+    outline: none;
+}
+
+.events input[type="email"] {
+    border: none;
+    padding: 20px;
+    border-radius: 50px;
+    flex: 1;
+    caret-color: var(--main-color);
+}
+
+.events input[type="email"]::placeholder {
+    transition: var(--main-transition);
+}
+
+.events input[type="email"]:focus::placeholder {
+    opacity: 0;
+}
+
+.events input[type="submit"] {
+    padding: 20px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--main-color);
+    transition: var(--main-transition);
+}
+
+.events input[type="submit"]:hover {
+    background-color: var(--main-color-alt);
+}
+
+@media (max-width: 767px) {
+    .events form {
+        flex-direction: column;
+        border-radius: 6px;
+        padding: 20px;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .events input {
+        border-radius: 6px !important;
+    }
+}
+/* Events End */
+
 /* Animation Start */
 @keyframes bounce {
     0% {
