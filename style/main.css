@@ -1,7 +1,7 @@
 /* Global Start */
 :root {
     --main-color: #2196f3;
-    --main-color-alt: #1787e0;
+    --main-color-alt: #137acf;
     --box-shadow: 0 0 10px #ddd;
     --main-transition: 0.3s;
     --white-hover: #fafafa;
@@ -472,11 +472,14 @@ header .mega-menu i {
 
 .gallery .image {
     overflow: hidden;
+    height: 100%;
     position: relative;
+    border-radius: 8px;
 }
 
 .gallery img {
     max-width: 100%;
+    height: 100%;
     transition: var(--main-transition);
 }
 
@@ -610,8 +613,8 @@ header .mega-menu i {
     font-size: 20px;
     font-weight: bold;
     border-radius: 8px;
-    transition: var(--main-transition);
-    background-size: 200%;
+    transition: 0.5s;
+    background-size: 250%;
     background-position: right;
 }
 
@@ -886,8 +889,91 @@ header .mega-menu i {
 
 .services a {
     color: var(--main-color);
+    transition: var(--main-transition);
+}
+
+.services a:hover {
+    color: var(--main-color-alt);
 }
 /* Services End */
+
+/* Work Start */
+.work {
+    padding-block: var(--section-padding);
+    background-color: var(--section-background);
+}
+
+.work .container {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+@media (max-width: 991px) {
+    .work .container {
+        flex-direction: column;
+    }
+}
+
+.work .container > img {
+    max-width: 100%;
+}
+
+.work .box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #f6f5f5;
+    border: 2px solid white;
+    border-radius: 6px;
+    padding: 30px;
+    z-index: 1;
+    gap: 30px;
+    position: relative;
+}
+
+@media (max-width: 767px) {
+    .work .box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.work .box::before {
+    content: "";
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    z-index: -1;
+    transition: var(--main-transition);
+    transform: translate(-50%, -50%);
+    background-color: #ededed;
+}
+
+.work .box:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.work .box img {
+    height: 64px;
+}
+
+.work h3 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.work p {
+    margin-block: 10px 0;
+    line-height: 1.7;
+    font-size: 18px;
+    color: #777;
+}
+/* Work End */
 
 /* Skills Start */
 .skills {
