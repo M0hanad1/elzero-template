@@ -10,8 +10,22 @@ function elementVisible(element, callBack) {
     });
 }
 
+// Skills width increase
 elementVisible(document.querySelector(".skills"), () => {
     document.querySelectorAll(".progress").forEach((value) => {
         value.style.width = value.parentElement.getAttribute("width");
+    });
+});
+
+// Stats counter
+elementVisible(document.querySelector(".stats"), () => {
+    document.querySelectorAll(".stats h3").forEach((value) => {
+        const goal = value.getAttribute("goal");
+        const counter = setInterval(() => {
+            if (value.textContent === goal) {
+                clearInterval(counter);
+            }
+            value.textContent++;
+        }, 2000 / goal);
     });
 });
