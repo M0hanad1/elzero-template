@@ -1328,6 +1328,88 @@ header .mega-menu i {
 }
 /* Pricing End */
 
+/* Video Start */
+.video {
+    padding-block: var(--section-padding);
+}
+
+.video .holder {
+    display: flex;
+    border: 1px solid var(--section-background);
+}
+
+.video .videos {
+    min-width: 300px;
+    border-right: 1px solid var(--section-background);
+}
+
+@media (max-width: 991px) {
+    .video .holder {
+        flex-direction: column;
+    }
+}
+
+.video .name {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 20px;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid var(--section-background);
+}
+
+.view i {
+    cursor: pointer;
+}
+
+.video li {
+    padding: 20px;
+    cursor: pointer;
+    transition: var(--main-transition);
+}
+
+.video li:hover {
+    background-color: #fafafa;
+    color: var(--main-color);
+}
+
+.video li:not(:first-child) {
+    border-top: 1px solid var(--section-background);
+}
+
+.video li p {
+    margin-block: 0 15px;
+}
+
+.video span {
+    color: #777;
+}
+
+.video .view {
+    padding: 10px;
+    background-color: var(--section-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+    .video .view {
+        gap: 10px;
+    }
+}
+
+.video .view p {
+    background-color: white;
+    padding: 20px;
+    margin: 0;
+}
+
+.video img {
+    max-width: 100%;
+}
+/* Video End */
+
 /* Animation Start */
 @keyframes bounce {
     0% {
