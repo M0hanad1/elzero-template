@@ -82,6 +82,21 @@ a {
     left: -30px;
 }
 
+.dots {
+    position: absolute;
+    max-width: 500px;
+}
+
+.dots:nth-child(1) {
+    top: 200px;
+    right: 0;
+}
+
+.dots:nth-child(2) {
+    bottom: 200px;
+    left: 0;
+}
+
 .container {
     padding-inline: 15px;
     margin-inline: auto;
@@ -1096,7 +1111,7 @@ header .mega-menu i {
 }
 
 .events h3 {
-    margin-block: 30px;
+    margin-block: 40px 20px;
     font-size: 28px;
 }
 
@@ -1171,6 +1186,146 @@ header .mega-menu i {
     }
 }
 /* Events End */
+
+/* Pricing Start */
+.pricing {
+    background-color: var(--section-background);
+    padding-block: var(--section-padding);
+    position: relative;
+}
+
+.pricing .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.pricing .box {
+    background-color: white;
+    box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    z-index: 1;
+}
+
+@media (min-width: 1200px) {
+    .pricing .box:has(.popular) {
+        top: -20px;
+    }
+}
+
+.pricing .box::before,
+.pricing .box::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    transition: var(--main-transition);
+    z-index: -1;
+    background-color: #f6f6f6;
+}
+
+.pricing .box::before {
+    height: 308px;
+    left: 0;
+    top: 0;
+}
+
+.pricing .box::after {
+    top: 308px;
+    right: 0;
+    height: 100%;
+}
+
+.pricing .box:hover::before,
+.pricing .box:hover::after {
+    width: 100%;
+}
+
+.pricing .data {
+    text-align: center;
+    position: relative;
+    padding-block: 30px 20px;
+}
+
+.pricing .popular {
+    position: absolute;
+    writing-mode: vertical-lr;
+    padding: 10px 10px 30px;
+    color: white;
+    background-color: var(--main-color);
+    right: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    top: 0;
+}
+
+.pricing .popular::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-width: 20px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    transition-delay: 0.05s;
+}
+
+.pricing .box:hover .popular::before {
+    border-bottom-color: #f6f6f6;
+    transition-delay: 0.2s;
+}
+
+.pricing h3 {
+    margin-block: 0 30px;
+    font-size: 23px;
+}
+
+.pricing .box img {
+    max-width: 80px;
+}
+
+.pricing span {
+    display: block;
+    margin-block: 30px 5px;
+    font-size: 55px;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.pricing p {
+    margin-block: 0;
+    color: #777;
+}
+
+.pricing li {
+    border-top: 1px solid var(--section-background);
+    padding: 20px;
+}
+
+.pricing i {
+    color: var(--main-color);
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.pricing a {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 40px;
+    color: var(--main-color);
+    padding: 15px 20px;
+    border-radius: 6px;
+    transition: var(--main-transition);
+    font-weight: bold;
+    border: 2px solid var(--main-color);
+}
+
+.pricing a:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+/* Pricing End */
 
 /* Animation Start */
 @keyframes bounce {
