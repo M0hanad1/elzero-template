@@ -21,6 +21,7 @@ html {
 
 body {
     font-family: "Roboto", sans-serif;
+    height: 100svh;
 }
 
 ul {
@@ -33,11 +34,26 @@ a {
     text-decoration: none;
 }
 
-body > *:not(header, .landing) {
+.wrapper {
+    position: relative;
+    display: none;
+}
+
+.wrapper > *:not(header, .landing) {
     position: relative;
     transform: translateY(100px);
     opacity: 0;
     transition: all 1s ease;
+}
+
+.wrapper > *[id] {
+    scroll-margin-top: 72px;
+}
+
+@media (max-width: 767px) {
+    .wrapper > *[id] {
+        scroll-margin-top: 100px;
+    }
 }
 
 .revealed {
@@ -133,10 +149,39 @@ body > *:not(header, .landing) {
 }
 /* Global End */
 
+/* Loader Start */
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: block;
+}
+
+.loader::before {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--main-color) var(--main-color) #dedede #dedede;
+    animation: spin 1.5s linear infinite;
+}
+/* Loader End */
+
 /* Header Start */
 header {
     background-color: white;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
     box-shadow: var(--box-shadow);
 }
 
@@ -187,6 +232,7 @@ header .nav > li > a {
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
     transition: var(--main-transition);
     padding-inline: 30px;
     overflow-x: hidden;
@@ -211,19 +257,15 @@ header .nav > li > a::before {
     transition: var(--main-transition);
 }
 
-header .nav > li > a:hover {
+header .nav > li > a:hover,
+header .nav > li.hover > a {
     background-color: var(--white-hover);
     color: var(--main-color);
 }
 
-header .nav > li > a:hover::before {
+header .nav > li > a:hover::before,
+header .nav > li.hover > a::before {
     left: 0;
-}
-
-header .nav > li:last-child:hover .mega-menu {
-    opacity: 1;
-    z-index: 99;
-    top: calc(100% + 1px);
 }
 
 header .mega-menu {
@@ -233,6 +275,7 @@ header .mega-menu {
     left: 0;
     display: flex;
     z-index: -1;
+    visibility: hidden;
     gap: 40px;
     top: calc(100% + 10px);
     padding: 30px;
@@ -240,6 +283,7 @@ header .mega-menu {
     opacity: 0;
     transition: var(--main-transition);
     border-bottom: 4px solid var(--main-color);
+    box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
 }
 
 @media (max-width: 767px) {
@@ -314,6 +358,13 @@ header .mega-menu a {
 header .mega-menu i {
     margin-right: 10px;
 }
+
+header .mega-menu.show {
+    opacity: 1;
+    z-index: 1;
+    top: 100%;
+    visibility: visible;
+}
 /* Header End */
 
 /* Landing Start */
@@ -335,7 +386,7 @@ header .mega-menu i {
 }
 
 .landing .container {
-    min-height: calc(100svh - 72px);
+    min-height: 100svh;
     padding-bottom: 120px;
     display: flex;
     align-items: center;
@@ -522,7 +573,7 @@ header .mega-menu i {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 99;
+    z-index: 1;
     transition: var(--main-transition);
     background-color: rgba(255, 255, 255, 0.2);
 }
@@ -1541,7 +1592,7 @@ header .mega-menu i {
     height: 100%;
     width: 100%;
     top: 0;
-    z-index: -2;
+    z-index: -1;
     left: 0;
     background-image: url("../assets/discount-background1.jpg");
     background-size: cover;
@@ -1555,7 +1606,7 @@ header .mega-menu i {
     height: calc(100% + 2px);
     z-index: -1;
     left: 0;
-    background-color: rgba(23, 135, 224, 0.98);
+    background-color: rgba(23, 135, 224, 0.99);
 }
 
 .discount .image {
@@ -1770,6 +1821,12 @@ footer .name {
 /* footer End */
 
 /* Animation Start */
+@keyframes spin {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
 @keyframes bounce {
     0% {
         transform: translateY(-20px);

@@ -1,3 +1,39 @@
+// Page Loading
+document.onreadystatechange = () => {
+    if (document.readyState !== "complete") {
+        document.querySelector(".wrapper").style.display = "none";
+        document.querySelector(".loader").style.display = "block";
+    } else {
+        document.querySelector(".loader").style.display = "none";
+        document.querySelector(".wrapper").style.display = "block";
+    }
+};
+
+function megaMenu() {
+    const menu = document.querySelector("header .mega-menu");
+    const li = document.querySelector("header .nav > li:last-of-type");
+    const hide = () => {
+        li.classList.remove("hover");
+        menu.classList.remove("show");
+        hoverMenu = false;
+    };
+
+    menu.addEventListener("mouseenter", () => (hoverMenu = true));
+    menu.addEventListener("mouseleave", hide);
+    menu.addEventListener("click", hide);
+
+    li.addEventListener("mouseenter", () => {
+        li.classList.add("hover");
+        menu.classList.add("show");
+    });
+
+    li.addEventListener("mouseleave", () => {
+        setTimeout(() => {
+            if (!hoverMenu) hide();
+        }, 10);
+    });
+}
+
 function elementVisible(ele, callBack, reveal = 350) {
     let started = false;
 
@@ -6,16 +42,18 @@ function elementVisible(ele, callBack, reveal = 350) {
             (ele.getBoundingClientRect().top < window.innerHeight - reveal) &
             !started
         ) {
-            console.log("started");
             callBack();
             started = true;
         }
     });
 }
 
+// MegaMenu Show/Hide
+megaMenu();
+
 // Reveal elements on scroll
 document
-    .querySelectorAll("body > *:not(header, .landing)")
+    .querySelectorAll(".wrapper > *:not(header, .landing)")
     .forEach((value) =>
         elementVisible(value, () => value.classList.add("revealed"), 100)
     );
