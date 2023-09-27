@@ -1446,7 +1446,7 @@ header .mega-menu i {
 }
 
 .stats .box {
-    opacity: 0.85;
+    opacity: 0.82;
     padding: 30px;
     transition: var(--main-transition);
     background-color: white;
@@ -1494,6 +1494,132 @@ header .mega-menu i {
     font-size: 18px;
 }
 /* Stats End */
+
+/* Discount Start */
+.discount {
+    display: flex;
+    min-height: 100svh;
+}
+
+@media (max-width: 991px) {
+    .discount {
+        flex-direction: column;
+    }
+}
+
+.discount .container > div {
+    padding-block: var(--section-padding);
+}
+
+.discount .content {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.discount .content:first-child {
+    color: white;
+    position: relative;
+}
+
+.discount .content:first-child:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: -2;
+    left: 0;
+    background-image: url("../assets/discount-background1.jpg");
+    background-size: cover;
+}
+
+.discount .content:first-child::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+    left: 0;
+    background-color: rgba(23, 135, 224, 0.98);
+}
+
+.discount .image {
+    padding-inline: 20px;
+    width: 540px;
+}
+
+.discount h2 {
+    font-size: 40px;
+    letter-spacing: -2px;
+}
+
+.discount p {
+    margin-block: 0 20px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.discount img {
+    width: 300px;
+    max-width: 100%;
+}
+
+.discount form h2 {
+    margin-bottom: 20px;
+}
+
+.discount form {
+    display: flex;
+    padding: 0 20px 50px;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.discount .input {
+    width: 100%;
+    padding: 15px;
+    caret-color: var(--main-color);
+    border: none;
+    font-size: 15px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fafafa;
+}
+
+.discount .input:focus {
+    outline: none;
+}
+
+.discount .input::placeholder {
+    transition: var(--main-transition);
+}
+
+.discount .input:focus::placeholder {
+    opacity: 0;
+}
+
+.discount textarea {
+    height: 200px;
+    resize: none;
+}
+
+.discount .input:last-child {
+    background-color: var(--main-color);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: var(--main-transition);
+}
+
+.discount .input:last-child:hover {
+    background-color: var(--main-color-alt);
+}
+/* Discount End */
 
 /* Animation Start */
 @keyframes bounce {
