@@ -1,14 +1,24 @@
-function elementVisible(element, callBack) {
-    const ElementHeight = parseInt(getComputedStyle(element).height) / 1.5;
+function elementVisible(ele, callBack, reveal = 350) {
     let started = false;
 
     window.addEventListener("scroll", () => {
-        if ((window.scrollY >= element.offsetTop - ElementHeight) & !started) {
+        if (
+            (ele.getBoundingClientRect().top < window.innerHeight - reveal) &
+            !started
+        ) {
+            console.log("started");
             callBack();
             started = true;
         }
     });
 }
+
+// Reveal elements on scroll
+document
+    .querySelectorAll("body > *:not(header, .landing)")
+    .forEach((value) =>
+        elementVisible(value, () => value.classList.add("revealed"), 100)
+    );
 
 // Skills width increase
 elementVisible(document.querySelector(".skills"), () => {
@@ -29,3 +39,6 @@ elementVisible(document.querySelector(".stats"), () => {
         }, 2000 / goal);
     });
 });
+
+// Get current year
+document.getElementById("year").textContent = new Date().getFullYear();
