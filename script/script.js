@@ -1,15 +1,17 @@
-// Page Loading
-document.onreadystatechange = () => {
-    if (document.readyState !== "complete") {
-        document.querySelector(".wrapper").style.display = "none";
-        document.querySelector(".loader").style.display = "block";
-    } else {
-        document.querySelector(".loader").style.display = "none";
-        document.querySelector(".wrapper").style.display = "block";
-    }
-};
+function loading() {
+    document.onreadystatechange = () => {
+        if (document.readyState === "complete") {
+            document.querySelector(".loader").style.display = "none";
+            document.querySelector(".wrapper").style.display = "block";
+            setTimeout(() => {
+                document.querySelector(".wrapper").style.opacity = 1;
+            }, 10);
+        }
+    };
+}
 
 function megaMenu() {
+    let hoverMenu = false;
     const menu = document.querySelector("header .mega-menu");
     const li = document.querySelector("header .nav > li:last-of-type");
     const hide = () => {
@@ -48,15 +50,16 @@ function elementVisible(ele, callBack, reveal = 350) {
     });
 }
 
-// MegaMenu Show/Hide
-megaMenu();
-
 // Reveal elements on scroll
 document
     .querySelectorAll(".wrapper > *:not(header, .landing)")
-    .forEach((value) =>
-        elementVisible(value, () => value.classList.add("revealed"), 100)
-    );
+    .forEach((e) => elementVisible(e, () => e.classList.add("revealed"), 100));
+
+// Page Loading
+loading();
+
+// MegaMenu Show/Hide
+megaMenu();
 
 // Skills width increase
 elementVisible(document.querySelector(".skills"), () => {
@@ -79,4 +82,5 @@ elementVisible(document.querySelector(".stats"), () => {
 });
 
 // Get current year
-document.getElementById("year").textContent = new Date().getFullYear();
+const year = new Date().getFullYear();
+document.querySelectorAll(".year").forEach((e) => (e.textContent = year));

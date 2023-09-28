@@ -35,23 +35,32 @@ a {
 }
 
 .wrapper {
-    position: relative;
     display: none;
+    opacity: 0;
+    transition: 1s;
 }
 
 .wrapper > *:not(header, .landing) {
     position: relative;
     transform: translateY(100px);
     opacity: 0;
-    transition: all 1s ease;
+    transition: 1s;
 }
 
 .wrapper > *[id] {
+    scroll-margin-top: 172px;
+}
+
+.wrapper > *[id].revealed {
     scroll-margin-top: 72px;
 }
 
 @media (max-width: 767px) {
     .wrapper > *[id] {
+        scroll-margin-top: 200px;
+    }
+
+    .wrapper > *[id].revealed {
         scroll-margin-top: 100px;
     }
 }
@@ -413,9 +422,6 @@ header .mega-menu.show {
 }
 
 @media (max-width: 991px) {
-    .landing .container {
-        min-height: calc(100svh - 100px);
-    }
     .landing .text {
         text-align: center;
     }
