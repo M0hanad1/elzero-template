@@ -1182,7 +1182,7 @@ header .mega-menu.show {
     color: var(--main-color);
     font-weight: bold;
     font-size: 35px;
-    padding: 15px;
+    padding: 15px 0;
     border-bottom: 1px solid var(--section-background);
     transition: var(--main-transition);
 }

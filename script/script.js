@@ -50,16 +50,48 @@ function elementVisible(ele, callBack, reveal = 350) {
     });
 }
 
-// Reveal elements on scroll
-document
-    .querySelectorAll(".wrapper > *:not(header, .landing)")
-    .forEach((e) => elementVisible(e, () => e.classList.add("revealed"), 100));
+function dateCounter() {
+    const eventDate = new Date(
+        `Dec 31, ${new Date().getFullYear()} 23:59:59`
+    ).getTime();
+    const date = [
+        document.getElementById("days"),
+        document.getElementById("hours"),
+        document.getElementById("minutes"),
+        document.getElementById("seconds"),
+    ];
+
+    setInterval(() => {
+        const timeLeft = eventDate - new Date().getTime();
+        if (timeLeft < eventDate) dateCounter();
+
+        const days = parseInt(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = parseInt(
+            (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = parseInt((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = parseInt((timeLeft % (1000 * 60)) / 1000);
+
+        date[0].textContent = days < 10 ? `0${days}` : days;
+        date[1].textContent = hours < 10 ? `0${hours}` : hours;
+        date[2].textContent = minutes < 10 ? `0${minutes}` : minutes;
+        date[3].textContent = seconds < 10 ? `0${seconds}` : seconds;
+    }, 1000);
+}
 
 // Page Loading
 loading();
 
 // MegaMenu Show/Hide
 megaMenu();
+
+// Data Counter
+dateCounter();
+
+// Reveal elements on scroll
+document
+    .querySelectorAll(".wrapper > *:not(header, .landing)")
+    .forEach((e) => elementVisible(e, () => e.classList.add("revealed"), 100));
 
 // Skills width increase
 elementVisible(document.querySelector(".skills"), () => {
@@ -73,9 +105,7 @@ elementVisible(document.querySelector(".stats"), () => {
     document.querySelectorAll(".stats h3").forEach((value) => {
         const goal = value.getAttribute("goal");
         const counter = setInterval(() => {
-            if (value.textContent === goal) {
-                clearInterval(counter);
-            }
+            if (value.textContent === goal) clearInterval(counter);
             value.textContent++;
         }, 2000 / goal);
     });
